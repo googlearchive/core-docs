@@ -8,11 +8,11 @@
     "core-action-icons": "Polymer/core-action-icons#master"
   },
   "homepage": "https://github.com/Polymer/core-icon",
-  "_release": "3101d2c1b1",
+  "_release": "b031ff21e9",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "3101d2c1b11cb6524cd92bc499cba38c621cc74c"
+    "commit": "b031ff21e92affc4d4efb66c60892a30896282ee"
   },
   "_source": "git://github.com/Polymer/core-icon.git",
   "_target": "master",

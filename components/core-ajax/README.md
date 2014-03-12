@@ -1,4 +1,4 @@
 core-ajax
 =========
 
-Polymer Core Ajax
+See the [component page](http://polymer.github.io/core-ajax) for more information.

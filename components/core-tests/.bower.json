@@ -1,11 +1,11 @@
 {
   "name": "core-tests",
   "homepage": "https://github.com/Polymer/core-tests",
-  "_release": "fc2c10eed5",
+  "_release": "0011fcc330",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "fc2c10eed5e23501e690193e3ea2a99d50a8b6bf"
+    "commit": "0011fcc330727663ab1e6a8df73770c791b78cbe"
   },
   "_source": "git://github.com/Polymer/core-tests.git",
   "_target": "master",
