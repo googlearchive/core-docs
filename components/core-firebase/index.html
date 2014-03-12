@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+
+  <title>polymer api</title>
+  
+  <style>
+    html, body {
+      font-family: Arial, sans-serif;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    [noviewer] [ifnoviewer] {
+      display: block;
+    }
+    [detector], [ifnoviewer], [noviewer] [ifviewer] {
+      display: none;
+    }
+    [ifviewer], [ifnoviewer] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    div[ifnoviewer] {
+      padding: 10px;
+    }
+    code {
+      font-size: 1.5em;
+    }
+  </style>
+  
+  <script src="../platform/platform.js"></script>
+  
+  <link rel="import" href="../polymer-home-page/polymer-home-page.html">
+  
+</head>
+<body>
+ 
+ <img detector src="../polymer-home-page/bowager-logo.png" onerror="noviewer()">
+  
+  <polymer-home-page ifviewer></polymer-home-page>
+  
+  <div ifnoviewer>
+  
+    <h3>Component documentation and information will appear here if you install the <a href="//github.com/Polymer/polymer-home-page">polymer-home-page</a> component:</h3>
+    <hr>
+    <p>To install with bower:</p>
+    <code>bower install Polymer/polymer-home-page</code>
+  
+  </div>
+  
+  <script>
+    var path = location.pathname.split('/');
+    var module = path.pop() || path.pop();
+    document.querySelector('title').textContent = module;
+    
+    function noviewer() {
+      document.body.setAttribute('noviewer', '');
+    }
+    
+    // for testing only
+    var opts = window.location.search;
+    if (opts.indexOf('noviewer') >= 0) {
+      noviewer();
+    }
+  </script>
+  
+</body>
+</html>
