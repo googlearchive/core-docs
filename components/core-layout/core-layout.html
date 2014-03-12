@@ -1,0 +1,159 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!--
+/**
+ * @group Polymer Core Elements
+ *
+ * The `core-layout` element provides a helper to use 
+ * [CSS3 Flexible Boxes](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes).
+ * Placing a `core-layout` inside an element allows it to use a set of css
+ * selectors to easily apply flexbox styling.
+ * 
+ * Apply the `h-box` class to make an element a horizontal flexible box and
+ * the `v-box` class to make it vertical.
+ * 
+ * To make a particular element flexible, use the `flex` class. This is the 
+ * same as making the element flex: 1. You can also set `flex2` through `flex5`.
+ * For other values, apply the css manually.
+ * 
+ * It's common in flexbox parlance to hear the term 'main' and 'cross' axis.
+ * For an `h-box` the main axis is horizontal and the cross axis is vertical.
+ * It's the reverse for a 'v-box'.
+ *
+ * To effect alignment in the main axis, use `justify-start`, `justify-center`, 
+ * `justify-end`, and `justify-between`.
+ * 
+ * To effect alignment in the cross axis, use `align-start`, `align-center`, 
+ * `align-end`.
+ *
+ * Examples:
+ *
+ *     <core-layout></core-layout>
+ *     <div class="h-box">
+ *       <div>Left</div>
+ *       <div class="flex">Main</div>
+ *       <div>Right</div>
+ *     </div>
+ *
+ *     ---------------------------------
+ *     |-------------------------------|
+ *     ||Left|       Main       |Right||
+ *     |-------------------------------|
+ *     ---------------------------------
+ *
+ *     <core-layout></core-layout>
+ *     <div class="v-box">
+  *      <div>Header</div>
+ *       <div class="flex">Body</div>
+ *       <div>Footer</div>
+ *     </div>
+ *
+ *     ----------
+ *     ||------||
+ *     ||Header||
+ *     ||------||
+ *     ||Body  ||
+ *     ||      ||
+ *     ||      ||
+ *     ||      ||
+ *     ||      ||
+ *     ||      ||
+ *     ||      ||
+ *     ||------||
+ *     ||Footer||
+ *     ||------||
+ *     ----------
+ *
+ * Justify:
+ *     <core-layout></core-layout>
+ *     <div class="h-box justify-end">
+ *       <div>Left</div>
+ *       <div>Main</div>
+ *       <div>Right</div>
+ *     </div>
+ *
+ *     ---------------------------------
+ *     |-------------------------------|
+ *     ||              Left|Main|Right||
+ *     |-------------------------------|
+ *     ---------------------------------
+ * 
+ * Align:
+ *     <core-layout></core-layout>
+ *     <div class="h-box align-center">
+ *       <div>Left</div>
+ *       <div class="flex">Main</div>
+ *       <div>Right</div>
+ *     </div>
+ *
+ *     ---------------------------------
+ *     |-------------------------------|
+ *     ||    |                  |     ||
+ *     ||Left|       Main       |Right||
+ *     ||    |                  |     ||
+ *     |-------------------------------|
+ *     ---------------------------------
+ *
+ * @element core-layout
+ */
+/**
+ * If true, the host element of the core-layout element becomes a 
+ * flexbox. Apply additional layout classes to the host element to customize
+ * its styling.
+ *
+ * @attribute host
+ * @type boolean
+ * @default false
+ */
+-->
+<link rel="import" href="../polymer/polymer.html">
+
+<polymer-element name="core-layout">
+  
+  <template>
+  
+    <link no-shim rel="stylesheet" href="core-layout.css">
+    <link no-shim rel="stylesheet" href="core-layout-host.css">
+  
+  </template>
+  
+  <script>
+  
+  (function() {
+  
+    Polymer('core-layout', {
+  
+      // NOTE: include template so that styles are loaded, but remove
+      // so that we can decide dynamically what part to include
+      registerCallback: function(polymerElement) {
+        var template = polymerElement.querySelector('template');
+        this.styles = template.content.querySelectorAll('style').array();
+        this.styles.forEach(function(s) {
+          s.removeAttribute('no-shim');
+        })
+      },
+  
+      fetchTemplate: function() {
+        return null;
+      },
+  
+      attached: function() {
+        this.installScopeStyle(this.styles[0]);
+        if (this.hasAttribute('host')) {
+          this.installScopeStyle(this.styles[1], 'host');
+        }
+      }
+
+    });
+
+  })();
+  </script>
+
+</polymer-element>

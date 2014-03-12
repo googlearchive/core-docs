@@ -1,0 +1,30 @@
+{
+  "name": "core-elements",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "core-layout-trbl": "Polymer/core-layout-trbl#master",
+    "core-ajax": "Polymer/core-ajax#master",
+    "core-component-page": "Polymer/core-component-page#master",
+    "core-icon": "Polymer/core-icon#master",
+    "core-iconset": "Polymer/core-iconset#master",
+    "core-layout": "Polymer/core-layout#master",
+    "core-media-query": "Polymer/core-media-query#master",
+    "core-meta": "Polymer/core-meta#master",
+    "core-selection": "Polymer/core-selection#master",
+    "core-selector": "Polymer/core-selector#master",
+    "core-tests": "Polymer/core-tests#master",
+    "core-theme-aware": "Polymer/core-theme-aware#master",
+    "core-action-icons": "Polymer/core-action-icons#master"
+  },
+  "homepage": "https://github.com/Polymer/core-elements",
+  "_release": "7b48e62ce0",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7b48e62ce00ad7593790f811ae37a81b09fbb226"
+  },
+  "_source": "git://github.com/Polymer/core-elements.git",
+  "_target": "master",
+  "_originalSource": "Polymer/core-elements"
+}

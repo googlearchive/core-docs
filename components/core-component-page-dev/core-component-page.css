@@ -1,0 +1,50 @@
+/*
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE
+The complete set of authors may be found at http://polymer.github.io/AUTHORS
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS
+*/
+
+:host {
+  position: relative;
+  display: block;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+}
+
+h2 {
+  display: inline-block;
+  margin: 8px 6px;
+  vertical-align: middle;
+}
+
+.choiceB, .choiceC, .choiceD {
+  /* typography */
+  color: white;
+  /* font-size: 14px; */
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  /* colors / effects */
+  background-color: #4285F4;
+  box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  cursor: pointer;
+  /* metrics */
+  display: inline-block;
+  padding: 4px 12px 5px 12px;
+  margin: 4px 0;
+}
+
+core-doc-viewer {
+  display: block;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  bottom: 0px;
+  left: 0;
+  border: 1px solid silver;
+}

@@ -1,0 +1,13 @@
+{
+  "name": "core-docs",
+  "homepage": "https://github.com/Polymer/core-docs",
+  "_release": "67829194e1",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "67829194e1ae2cfad4f76c192c3a94e8e1be7b58"
+  },
+  "_source": "git://github.com/Polymer/core-docs.git",
+  "_target": "master",
+  "_originalSource": "Polymer/core-docs"
+}

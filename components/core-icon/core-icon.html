@@ -1,0 +1,144 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!--
+/**
+ *
+ * @group Polymer Core Elements
+ *
+ * The `core-icon` element displays an icon. By default it's size is
+ * 24px x 24px, and this can be customized via the `size` property. The icon is 
+ * displayed as a css background-image. There are two 
+ * ways to specify the icon to display. To display a single custom icon, the
+ * `src` attribute may be set to a url representing the icon resource. The 
+ * `core-icon` element can also be used to display one icon from a set of icons.
+ * A default set of icons is provided that includes: 
+ *
+ * drawer, menu, search, dropdown, close, add, trash, refresh  settings,
+ * dialoga, left, right  down, up, grid, contact  account, plus, time, marker,
+ * briefcase, array, columns, list  modules, quilt, stream, maximize  shrink, 
+ * sort, shortcut, dialog  twitter, facebook, favorite, gplus  filter, tag, 
+ * plusone, dots
+
+ * Set the `icon` to the name or index of the icon in the set to display. 
+ * A custom `core-iconset` may also be specified. To do so, prepend the iconset
+ * name and a colon to the icon name.
+ * The `core-iconset` must be defined separately.
+ *
+ * Example using src:
+ *
+ *     <core-icon src="star.png"></core-icon>
+ *
+ * Optionally can use other size like 32x32 by setting the attribute "size" to
+ * "32":
+ *
+ *     <core-icon src="big_star.png" size="32"></core-icon>
+ *
+ * Example using icon:
+ *
+ *     <core-icon icon="menu"></core-icon>
+ *
+ * See <a href="core-iconset.html">core-iconset</a> for more information about 
+ * how to use a custom iconset.
+ *
+ * @element core-icon
+ * @homepage github.io
+ */
+-->
+
+<link rel="import" href="../core-theme-aware/core-theme-aware.html">
+<link rel="import" href="../core-iconset/core-iconset.html">
+<link rel="import" href="core-icons.html">
+
+<polymer-element name="core-icon" extends="core-theme-aware" attributes="src size index icon">
+
+  <template>
+
+    <link rel="stylesheet" href="core-icon.css">
+    <core-iconset id="meta"></core-iconset>
+    <content></content>
+
+  </template>
+
+  <script>
+
+    Polymer('core-icon', {
+
+      /**
+       * The URL of an image for the icon. If the src property is specified,
+       * the icon property should not be.
+       *
+       * @attribute src
+       * @type string
+       * @default ''
+       */
+      src: '',
+
+      /**
+       * Specifies the size of the icon in pixel units.
+       *
+       * @attribute size
+       * @type string
+       * @default 24
+       */
+      size: 24,
+
+      /**
+       * Specifies the icon name or index in the set of icons available in
+       * the icon's icon set. If the icon property is specified,
+       * the src property should not be.
+       *
+       * @attribute icon
+       * @type string
+       * @default ''
+       */
+      icon: '',
+
+      defaultIconset: 'core-icons',
+
+      observe: {
+        icon: 'updateIcon',
+        activeTheme: 'updateIcon'
+      },
+
+      ready: function() {
+        this.sizeChanged();
+      },
+
+      sizeChanged: function() {
+        this.style.width = this.style.height = this.size + 'px';
+      },
+
+      srcChanged: function() {
+        this.style.backgroundImage = 'url(' + this.src + ')';
+        this.style.backgroundPosition = 'center';
+        this.style.backgroundSize = this.size + 'px ' + this.size + 'px';
+      },
+
+      getIconset: function(name) {
+        return this.$.meta.byId(name || this.defaultIconset);
+      },
+
+      updateIcon: function() {
+        if (!this.icon) {
+          return;
+        }
+        var parts = this.icon.split(':');
+        var icon = parts.pop();
+        var set = this.getIconset(parts.pop());
+        if (set) {
+          var scale = this.size / set.iconSize;
+          set.applyAsBackground(this, icon, this.activeTheme, scale);
+        }
+      }
+
+    });
+
+  </script>
+
+</polymer-element>

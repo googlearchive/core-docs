@@ -1,0 +1,17 @@
+{
+  "name": "core-selection",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master"
+  },
+  "homepage": "https://github.com/Polymer/core-selection",
+  "_release": "f8e46d28dd",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f8e46d28ddf7d4fe2bee3b423e53340ec6dea0f2"
+  },
+  "_source": "git://github.com/Polymer/core-selection.git",
+  "_target": "master",
+  "_originalSource": "Polymer/core-selection"
+}
