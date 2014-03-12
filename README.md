@@ -1,4 +1,4 @@
 core-docs
 =========
 
-Polymer Core Elements Documentation 
+See //polymer.github.io/core-docs
