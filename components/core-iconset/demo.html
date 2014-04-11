@@ -10,22 +10,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <html>
 <head>
+
   <title>core-iconset</title>
 
   <script src="../platform/platform.js"></script>
   <link rel="import" href="core-iconset.html">
 
-  <style>
-    polymer-ui-menu {
-      width: 300px;
-    }
-  </style>
-
 </head>
-
 <body unresolved>
+  
   <!-- Register an icon set; you can do this anywhere, including an HTMLImport! -->
   <core-iconset id="my-icons" src="my-icons.png" width="96" iconSize="24"
+      icons="location place starta stopb bus car train walk">
+  </core-iconset>
+
+  <core-iconset id="svg-icons" src="../core-action-icons/action-icons.svg" width="24" iconSize="24"
       icons="location place starta stopb bus car train walk">
   </core-iconset>
 
@@ -67,7 +66,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             this.style.height = this.style.width = iconset.iconSize + 'px';
             // use iconset's applyAsBackground method to set the given icon
             // as the element's background image.
-            iconset.applyAsBackground(this, icon);
+            iconset.applyIcon(this, icon);
           }
         }
 
@@ -96,6 +95,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <icon-demo icon="my-icons:5"></icon-demo>
   <icon-demo icon="my-icons:6"></icon-demo>
   <icon-demo icon="my-icons:7"></icon-demo>
-
+  <br>
+  <!-- Now create a bunch of icons using our iconset -->
+  <icon-demo icon="svg-icons:location"></icon-demo>
+  <icon-demo icon="svg-icons:place"></icon-demo>
+  <icon-demo icon="svg-icons:starta"></icon-demo>
+  <icon-demo icon="svg-icons:stopb"></icon-demo>
+  <icon-demo icon="svg-icons:bus"></icon-demo>
+  <icon-demo icon="svg-icons:car"></icon-demo>
+  <icon-demo icon="svg-icons:train"></icon-demo>
+  <icon-demo icon="svg-icons:walk"></icon-demo>
 </body>
 </html>

@@ -6,10 +6,12 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
+
 <!--
 /**
  * @group Polymer Core Elements
  */
+
 /**
  * core-selector is used to manage a list of elements that can be selected.
  * The attribute "selected" indicates which item element is being selected.
@@ -44,6 +46,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  * @status stable
  * @homepage github.io
  */
+
 /**
  * Fired when an item's selection state is changed. This event is fired both
  * when an item is selected or deselected. The `isSelected` detail property
@@ -54,6 +57,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  *   @param {boolean} detail.isSelected true for selection and false for deselection
  *   @param {Object} detail.item the item element
  */
+
 /**
  * Fired when an item element is tapped.
  * 
@@ -62,179 +66,182 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  *   @param {Object} detail.item the item element
  */
 -->
+
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../core-selection/core-selection.html">
 
-<polymer-element name="core-selector"
-    attributes="selected multi valueattr selectedClass selectedProperty selectedAttribute selectedItem selectedModel selectedIndex notap target itemsSelector activateEvent">
+<polymer-element name="core-selector">
 
   <template>
+
     <core-selection id="selection" multi="{{multi}}" on-core-select="{{selectionSelect}}"></core-selection>
     <content id="items" select="*"></content>
+
   </template>
 
   <script>
 
     Polymer('core-selector', {
+      publish: {
+        /**
+         * Gets or sets the selected element.  Default to use the index
+         * of the item element.
+         *
+         * If you want a specific attribute value of the element to be
+         * used instead of index, set "valueattr" to that attribute name.
+         *
+         * Example:
+         *
+         *     <core-selector valueattr="label" selected="foo">
+         *       <div label="foo"></div>
+         *       <div label="bar"></div>
+         *       <div label="zot"></div>
+         *     </core-selector>
+         *
+         * In multi-selection this should be an array of values.
+         *
+         * Example:
+         *
+         *     <core-selector id="selector" valueattr="label" multi>
+         *       <div label="foo"></div>
+         *       <div label="bar"></div>
+         *       <div label="zot"></div>
+         *     </core-selector>
+         *
+         *     this.$.selector.selected = ['foo', 'zot'];
+         *
+         * @attribute selected
+         * @type Object
+         * @default null
+         */
+        selected: -1,
 
-      /**
-       * Gets or sets the selected element.  Default to use the index
-       * of the item element.
-       *
-       * If you want a specific attribute value of the element to be
-       * used instead of index, set "valueattr" to that attribute name.
-       *
-       * Example:
-       *
-       *     <core-selector valueattr="label" selected="foo">
-       *       <div label="foo"></div>
-       *       <div label="bar"></div>
-       *       <div label="zot"></div>
-       *     </core-selector>
-       *
-       * In multi-selection this should be an array of values.
-       *
-       * Example:
-       *
-       *     <core-selector id="selector" valueattr="label" multi>
-       *       <div label="foo"></div>
-       *       <div label="bar"></div>
-       *       <div label="zot"></div>
-       *     </core-selector>
-       *
-       *     this.$.selector.selected = ['foo', 'zot'];
-       *
-       * @attribute selected
-       * @type Object
-       * @default null
-       */
-      selected: null,
+        /**
+         * If true, multiple selections are allowed.
+         *
+         * @attribute multi
+         * @type boolean
+         * @default false
+         */
+        multi: false,
 
-      /**
-       * If true, multiple selections are allowed.
-       *
-       * @attribute multi
-       * @type boolean
-       * @default false
-       */
-      multi: false,
+        /**
+         * Specifies the attribute to be used for "selected" attribute.
+         *
+         * @attribute valueattr
+         * @type string
+         * @default 'name'
+         */
+        valueattr: 'name',
 
-      /**
-       * Specifies the attribute to be used for "selected" attribute.
-       *
-       * @attribute valueattr
-       * @type string
-       * @default 'name'
-       */
-      valueattr: 'name',
+        /**
+         * Specifies the CSS class to be used to add to the selected element.
+         * 
+         * @attribute selectedClass
+         * @type string
+         * @default 'core-selected'
+         */
+        selectedClass: 'core-selected',
 
-      /**
-       * Specifies the CSS class to be used to add to the selected element.
-       * 
-       * @attribute selectedClass
-       * @type string
-       * @default 'core-selected'
-       */
-      selectedClass: 'core-selected',
+        /**
+         * Specifies the property to be used to set on the selected element
+         * to indicate its active state.
+         *
+         * @attribute selectedProperty
+         * @type string
+         * @default ''
+         */
+        selectedProperty: '',
 
-      /**
-       * Specifies the property to be used to set on the selected element
-       * to indicate its active state.
-       *
-       * @attribute selectedProperty
-       * @type string
-       * @default ''
-       */
-      selectedProperty: '',
+        /**
+         * Specifies the property to be used to set on the selected element
+         * to indicate its active state.
+         *
+         * @attribute selectedProperty
+         * @type string
+         * @default 'active'
+         */
+        selectedAttribute: 'active',
 
-      /**
-       * Specifies the property to be used to set on the selected element
-       * to indicate its active state.
-       *
-       * @attribute selectedProperty
-       * @type string
-       * @default 'active'
-       */
-      selectedAttribute: 'active',
+        /**
+         * Returns the currently selected element. In multi-selection this returns
+         * an array of selected elements.
+         * 
+         * @attribute selectedItem
+         * @type Object
+         * @default null
+         */
+        selectedItem: null,
 
-      /**
-       * Returns the currently selected element. In multi-selection this returns
-       * an array of selected elements.
-       * 
-       * @attribute selectedItem
-       * @type Object
-       * @default null
-       */
-      selectedItem: null,
+        /**
+         * In single selection, this returns the model associated with the
+         * selected element.
+         * 
+         * @attribute selectedModel
+         * @type Object
+         * @default null
+         */
+        selectedModel: null,
 
-      /**
-       * In single selection, this returns the model associated with the
-       * selected element.
-       * 
-       * @attribute selectedModel
-       * @type Object
-       * @default null
-       */
-      selectedModel: null,
+        /**
+         * In single selection, this returns the selected index.
+         *
+         * @attribute selectedIndex
+         * @type number
+         * @default -1
+         */
+        selectedIndex: -1,
 
-      /**
-       * In single selection, this returns the selected index.
-       *
-       * @attribute selectedIndex
-       * @type number
-       * @default -1
-       */
-      selectedIndex: -1,
+        /**
+         * The target element that contains items.  If this is not set 
+         * core-selector is the container.
+         * 
+         * @attribute target
+         * @type Object
+         * @default null
+         */
+        target: null,
 
-      /**
-       * The target element that contains items.  If this is not set 
-       * core-selector is the container.
-       * 
-       * @attribute target
-       * @type Object
-       * @default null
-       */
-      target: null,
+        /**
+         * This can be used to query nodes from the target node to be used for 
+         * selection items.  Note this only works if the 'target' property is set.
+         *
+         * Example:
+         *
+         *     <core-selector target="{{$.myForm}}" itemsSelector="input[type=radio]"></core-selector>
+         *     <form id="myForm">
+         *       <label><input type="radio" name="color" value="red"> Red</label> <br>
+         *       <label><input type="radio" name="color" value="green"> Green</label> <br>
+         *       <label><input type="radio" name="color" value="blue"> Blue</label> <br>
+         *       <p>color = {{color}}</p>
+         *     </form>
+         * 
+         * @attribute itemSelector
+         * @type string
+         * @default ''
+         */
+        itemsSelector: '',
 
-      /**
-       * This can be used to query nodes from the target node to be used for 
-       * selection items.  Note this only works if the 'target' property is set.
-       *
-       * Example:
-       *
-       *     <core-selector target="{{$.myForm}}" itemsSelector="input[type=radio]"></core-selector>
-       *     <form id="myForm">
-       *       <label><input type="radio" name="color" value="red"> Red</label> <br>
-       *       <label><input type="radio" name="color" value="green"> Green</label> <br>
-       *       <label><input type="radio" name="color" value="blue"> Blue</label> <br>
-       *       <p>color = {{color}}</p>
-       *     </form>
-       * 
-       * @attribute itemSelector
-       * @type string
-       * @default ''
-       */
-      itemsSelector: '',
+        /**
+         * The event that would be fired from the item element to indicate
+         * it is being selected.
+         *
+         * @attribute activateEvent
+         * @type string
+         * @default 'tap'
+         */
+        activateEvent: 'tap',
 
-      /**
-       * The event that would be fired from the item element to indicate
-       * it is being selected.
-       *
-       * @attribute activateEvent
-       * @type string
-       * @default 'tap'
-       */
-      activateEvent: 'tap',
-
-      /**
-       * Set this to true to disallow changing the selection via the
-       * `activateEvent`.
-       *
-       * @attribute notap
-       * @type boolean
-       * @default false
-       */
-      notap: false,
+        /**
+         * Set this to true to disallow changing the selection via the
+         * `activateEvent`.
+         *
+         * @attribute notap
+         * @type boolean
+         * @default false
+         */
+        notap: false,
+      },
 
       ready: function() {
         this.activateListener = this.activateHandler.bind(this);

@@ -6,63 +6,57 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
+
 <!--
-/**
- * @group Polymer Core Elements
- *
- * The `core-ajax` element performs `XMLHttpRequest`s.
- * 
- * You can trigger a request explicitly by calling `go` on the
- * element. 
- * 
- * With `auto` set to `true`, the element performs a request whenever
- * its `url` or `params` properties are changed.
- * 
- *
- * Example:
- *
- *     <core-ajax auto url="http://gdata.youtube.com/feeds/api/videos/" 
- *         params='{"alt":"json", "q":"chrome"}'
- *         handleAs="json"
- *         on-core-response="{{handleResponse}}">
- *     </core-ajax>
- * 
- * Note: The `params` attribute must be double quoted JSON.
- *
- * @element core-ajax
- * @status beta
- * @homepage github.io
- *
- */
+@group Polymer Core Elements
+
+The `core-ajax` element exposes `XMLHttpRequest` functionality.
+
+    <core-ajax
+        auto
+        url="http://gdata.youtube.com/feeds/api/videos/"
+        params='{"alt":"json", "q":"chrome"}'
+        handleAs="json"
+        on-core-response="{{handleResponse}}"></core-ajax>
  
-/**
- * Fired when a response is received.
- * 
- * @event core-response
- */
- 
-/**
- * Fired when an error is received.
- * 
- * @event core-error
- */
- 
-/**
- * Fired whenever a response or an error is received.
- *
- * @event core-complete
- */
- 
+With `auto` set to `true`, the element performs a request whenever
+its `url` or `params` properties are changed.
+
+Note: The `params` attribute must be double quoted JSON.
+
+You can trigger a request explicitly by calling `go` on the
+element.
+
+@element core-ajax
+@status beta
+@homepage github.io
 -->
 
 <link rel="import" href="core-xhr.html">
 
-<polymer-element name="core-ajax" attributes="url handleAs auto params response method headers body contentType">
+<polymer-element name="core-ajax" attributes="url handleAs auto params response method headers body contentType withCredentials">
 
   <script>
 
     Polymer('core-ajax', {
+      /**
+       * Fired when a response is received.
+       * 
+       * @event core-response
+       */
  
+      /**
+       * Fired when an error is received.
+       * 
+       * @event core-error
+       */
+ 
+      /**
+       * Fired whenever a response or an error is received.
+       *
+       * @event core-complete
+       */
+
       /**
        * The URL target of the request.
        * 
@@ -132,11 +126,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *
        * Example:
        *
-       *     <core-ajax auto url="http://somesite.com"
+       *     <core-ajax 
+       *         auto
+       *         url="http://somesite.com"
        *         headers='{"X-Requested-With": "XMLHttpRequest"}'
        *         handleAs="json"
-       *         on-core-response="{{handleResponse}}">
-       *     </core-ajax>
+       *         on-core-response="{{handleResponse}}"></core-ajax>
        *  
        * @attribute headers
        * @type Object
@@ -168,6 +163,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       contentType: 'application/x-www-form-urlencoded',
 
+      /**
+       * Set the withCredentials flag on the request.
+       * 
+       * @attribute withCredentials
+       * @type boolean
+       * @default false
+       */
+      withCredentials: false,
+      
       ready: function() {
         this.xhr = document.createElement('core-xhr');
       },
@@ -273,12 +277,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         if (this.contentType) {
           args.headers['content-type'] = this.contentType;
         }
+        
+        args.withCredentials = this.withCredentials;
         args.callback = this.receive.bind(this);
         args.url = this.url;
         args.method = this.method;
         return args.url && this.xhr.request(args);
       }
-      
+
     });
 
   </script>

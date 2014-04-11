@@ -6,53 +6,56 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
+
 <!--
-/**
- * @group Polymer Core Elements
- *
- * The `core-theme-aware` element is a base element which can be 
- * extended to create elements that can support theming. This element applies
- * no styling itself; instead it allows the author to create styles that 
- * apply known themes.
+@group Polymer Core Elements
 
- * The user of a theme-aware element can set a `theme` attribute anywhere 
- * in the dom tree containing the element, ShadowDOM inclusive. The theme-aware
- * element simply ensures that the element has the appropriate theme class. This
- * theme class corresponds to the theme attribute.
+The `core-theme-aware` element is a base element which can be 
+extended to create elements that can support theming. This element applies
+no styling itself; instead it allows the author to create styles that 
+apply known themes.
 
- * This means an author can create a set of elements that support a particular
- * theme, and the user of that set can, for example, set a theme attribute
- * on the body element to apply that theme inside the body element. The 
- * `core-theme-aware` element also supports nested theming. For example,
- * the body element might be given theme="standard" but a particuarly subtree
- * could be given a theme="different".
- * 
- * Example:
- *
- *    <body theme="pretty">
- *
- *      <core-theme-aware> 
- *        auto-styled with class="pretty" as a result of the containing theme
- *      <core-theme-aware>
- *
- *      <section theme="different">
- *
- *        <core-theme-aware> 
- *          auto-styled with class="different" as a result of the containing theme
- *        <core-theme-aware>
- *      </section>
- *    </body>
- * 
-  *
- * @element core-theme-aware
- * @status beta
- * @homepage github.io
- *
- */
+The user of a theme-aware element can set a `theme` attribute anywhere 
+in the dom tree containing the element, ShadowDOM inclusive. The theme-aware
+element simply ensures that the element has the appropriate theme class. This
+theme class corresponds to the theme attribute.
 
+This means an author can create a set of elements that support a particular
+theme, and the user of that set can, for example, set a theme attribute
+on the body element to apply that theme inside the body element. The 
+`core-theme-aware` element also supports nested theming. For example,
+the body element might be given theme="standard" but a particuarly subtree
+could be given a theme="different".
+
+`core-theme-aware` uses the [Polymer.ThemeAware](#Polymer.ThemeAware) mixin.
+
+Example:
+
+    <body theme="pretty">
+
+      <core-theme-aware> 
+        auto-styled with class="pretty" as a result of the containing theme
+      <core-theme-aware>
+
+      <section theme="different">
+
+        <core-theme-aware> 
+          auto-styled with class="different" as a result of the containing theme
+        <core-theme-aware>
+
+      </section>
+
+    </body>
+
+@class core-theme-aware
+@status beta
+@homepage github.io
+
+-->
+
+<!--
  // NOTE: Polymer.ThemeAware methods separately documented so they can be part
  // of core-theme-aware.
- 
  /**
    * When no theme is specified, the value `defaultTheme` will be applied
    * as the theme class.
@@ -63,7 +66,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @type string
    * @default ''
    */
-  defaultTheme: '',
 
   /**
    * The `activeTheme` property stores the current theme. When the activeTheme
@@ -78,7 +80,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @type string
    * @default ''
    */
-  activeTheme: '',
 
   /**
    * The theme set by the user of the theme-aware element. The `theme`
@@ -194,7 +195,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     };
 
     Polymer('core-theme-aware', Platform.mixin({
-    
+
       attached: function() {
         this.validateTheme();
       }

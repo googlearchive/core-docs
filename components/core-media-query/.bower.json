@@ -5,11 +5,11 @@
     "polymer": "Polymer/polymer#master"
   },
   "homepage": "https://github.com/Polymer/core-media-query",
-  "_release": "f4d3007e14",
+  "_release": "c4cc3d1519",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "f4d3007e1401cbc404f492044941f1054f76a148"
+    "commit": "c4cc3d1519c76a79b3f17bec8e5bbe5d0924f86f"
   },
   "_source": "git://github.com/Polymer/core-media-query.git",
   "_target": "master",

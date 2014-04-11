@@ -11,7 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <head>
   <title>core-layout demo</title>
 
-  <script src="../components/platform/platform.js"></script>
+  <script src="../platform/platform.js"></script>
   <link rel="import" href="core-layout.html">
   
   <style>
@@ -50,23 +50,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           border: none;
         }
       </style>
-      <core-layout host></core-layout>
-      <div class="flex h-box">
+      <link rel="stylesheet" href="core-layout.css">
+      <link rel="stylesheet" href="core-layout-host.css">
+      <div core-flex core-flow="h">
         <div>Hi I'm some content</div>
-        <div class="flex v-box">
-          <div class="h-box align-center">
+        <div core-flex core-flow="v">
+          <div core-flow="h" core-align="center">
             <h3>Title</h3>
             <button>hello</button>
           </div>
-          <div class="flex h-box">
-            <div class="flex contain">
+          <div core-flex core-flow="h">
+            <div core-flex core-relative>
               Main content
               <div class="abs">abs pos :)</div>
             </div>
             <div>Sidebar content</div>
           </div>
           <div>Some more stuffs...</div>
-          <div class="h-box justify-end">
+          <div core-flow="h" core-justify="end">
             <b>Footer</b>
           </div>
         </div>
