@@ -61,9 +61,14 @@
     <script>
       var single = document.getElementById('single');
       single.addEventListener('change', function() {
-        console.log('single: value committed: ', single.committedValue);
+        console.log('single: value committed: ', single.value);
       });
     </script>
+  </section>
+
+  <section>
+    <aside>This is an example of setting a default value.</aside>
+    <core-input id="single" value="A pre-filled value."></core-input>
   </section>
 
   <section>

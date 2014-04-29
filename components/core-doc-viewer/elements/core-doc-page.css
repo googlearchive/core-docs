@@ -2,6 +2,16 @@
   display: block;
 }
 
+#panel {
+  height: 100%;
+}
+
+.main {
+  padding: 0 72px;
+  max-width: 832px;
+  margin: 0 auto;
+}
+
 markedjs-element {
   display: block;
 }
@@ -62,17 +72,12 @@ pre code {
   border: none;
 }
 
-.main {
-  padding: 0 72px;
-  max-width: 832px;
-}
-
 /**/
 
 .details-name {
   display: inline-block; 
   vertical-align: top;
-  width: 220px;
+  width: 190px;
 }
 
 .details-info {
