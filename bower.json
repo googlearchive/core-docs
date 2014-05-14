@@ -1,7 +1,8 @@
 {
-  "name": "core-docs",
+  "name": "complete-core-docs",
   "private": true,
   "dependencies": {
+	"core-docs": "Polymer/core-docs#master",
     "core-elements": "Polymer/core-elements#master"
   }
 }
