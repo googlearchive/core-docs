@@ -5,11 +5,11 @@
     "core-doc-viewer": "Polymer/core-doc-viewer#master"
   },
   "homepage": "https://github.com/Polymer/core-docs",
-  "_release": "25852b371b",
+  "_release": "2c465fa042",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "25852b371b5b5bb25ed13c8d37c2fd5c18612203"
+    "commit": "2c465fa04200960bd560b2880d44d9b360a7e865"
   },
   "_source": "git://github.com/Polymer/core-docs.git",
   "_target": "master",
