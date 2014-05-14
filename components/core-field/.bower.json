@@ -6,11 +6,11 @@
     "core-layout": "Polymer/core-layout#master"
   },
   "homepage": "https://github.com/Polymer/core-field",
-  "_release": "8e4691440c",
+  "_release": "e2eedf4af7",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "8e4691440ce95700ab81f3e055857e3b0e0595c2"
+    "commit": "e2eedf4af705268c7f0e94b7017397b8c3d1d5f7"
   },
   "_source": "git://github.com/Polymer/core-field.git",
   "_target": "master",

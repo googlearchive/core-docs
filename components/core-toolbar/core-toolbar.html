@@ -9,7 +9,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <!--
 `core-toolbar` is a horizontal bar containing elements that can be used for
-label, navigation, search and actions.
+label, navigation, search and actions. It extends [core-theme-aware](../core-theme-aware).
+
+<b>Example:</b>
 
     <core-toolbar>
       <core-icon-button icon="menu" on-tap="{{menuAction}}"></core-icon-button>
@@ -39,6 +41,7 @@ When taller, actions can pin to either the top (default), middle or bottom.
 
 @group Polymer Core Elements
 @element core-toolbar
+@extends core-theme-aware
 @homepage github.io
 -->
 
@@ -50,15 +53,15 @@ When taller, actions can pin to either the top (default), middle or bottom.
   <link rel="stylesheet" href="core-toolbar.css">
   <link rel="stylesheet" href="../core-layout/core-layout.css">
 
-  <div class="toolbar-tools-bottom core-h core-align-center">
+  <div class="toolbar-tools toolbar-tools-bottom core-h core-align-center">
     <content select=".bottom"></content>
   </div>
   
-  <div class="toolbar-tools-middle core-h core-align-center">
+  <div class="toolbar-tools toolbar-tools-middle core-h core-align-center">
     <content select=".middle"></content>
   </div>
 
-  <div class="toolbar-tools core-h core-align-center">
+  <div class="toolbar-tools toolbar-tools-top core-h core-align-center">
     <content></content>
   </div>
 

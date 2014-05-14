@@ -1,4 +1,5 @@
 <link rel="import" href="../../core-layout/core-layout.html">
+<link rel="import" href="../../core-icons/core-icons.html">
 <link rel="import" href="../../core-icon-button/core-icon-button.html">
 <link rel="import" href="../../core-toolbar/core-toolbar.html">
 <link rel="import" href="../../core-header-panel/core-header-panel.html">
@@ -42,8 +43,15 @@ Set url to add documentation from that location to the view.
         </h1>
 
         <p>
-          <core-icon icon="tag" style="vertical-align: middle;"></core-icon>&nbsp;<a href="{{data | homepageFilter}}">Home Page</a>
+          <core-icon icon="home" style="vertical-align: middle;"></core-icon>&nbsp;<a href="{{data | homepageFilter}}">Home Page</a>
         </p>
+
+        <template if="{{data.extends}}">
+          <section class="box">
+            <div class="ntitle">Extends</div>
+            <a href="#{{data.extends}}">{{data.extends}}</a>
+          </section>
+        </template>
 
         <template if="{{data.description}}">
           <section class="box top">
@@ -56,6 +64,23 @@ Set url to add documentation from that location to the view.
           <section class="box attribute-box">
             <div class="ntitle" style="background-color: #FFAB40; color: white;">Attributes</div>
             <template repeat="{{data.attributes}}">
+              <div class="details">
+                <div class="details-name">
+                  <p><code>{{name}}</code></p>
+                </div>
+                <div class="details-info">
+                  <p><code>{{type}}</code></p>
+                  <marked-element text="{{description}}"></marked-element>
+                </div>
+              </div>
+            </template>
+          </section>
+        </template>
+
+        <template if="{{data.properties.length}}">
+          <section class="box property-box">
+            <div class="ntitle" style="background-color: #4285F4; color: white;">Properties</div>
+            <template repeat="{{data.properties}}">
               <div class="details">
                 <div class="details-name">
                   <p><code>{{name}}</code></p>

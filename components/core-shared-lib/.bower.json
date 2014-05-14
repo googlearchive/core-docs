@@ -1,0 +1,17 @@
+{
+  "name": "core-shared-lib",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master"
+  },
+  "homepage": "https://github.com/Polymer/core-shared-lib",
+  "_release": "64686a33b7",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "64686a33b7e9edbb5b47160ad8d42f6edf490a71"
+  },
+  "_source": "git://github.com/Polymer/core-shared-lib.git",
+  "_target": "master",
+  "_originalSource": "Polymer/core-shared-lib"
+}

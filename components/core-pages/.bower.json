@@ -5,11 +5,11 @@
     "core-selector": "Polymer/core-selector#master"
   },
   "homepage": "https://github.com/Polymer/core-pages",
-  "_release": "a891239f79",
+  "_release": "f980c0853d",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "a891239f79aa3b3487f2c41d07cd351a6c29930b"
+    "commit": "f980c0853d07a0fe2f1e33e722ae1a18e8d416b3"
   },
   "_source": "git://github.com/Polymer/core-pages.git",
   "_target": "master",

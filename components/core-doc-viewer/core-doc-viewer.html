@@ -6,6 +6,7 @@
 Displays formatted source documentation scraped from input urls.
 
 @class core-doc-viewer
+@homepage github.io
 -->
 
 <polymer-element name="core-doc-viewer" attributes="sources route url">
@@ -13,11 +14,6 @@ Displays formatted source documentation scraped from input urls.
   <template>
 
     <style>
-
-      :host {
-        display: block;
-        position: relative;
-      }
 
       core-doc-toc {
         display: none;
@@ -33,18 +29,39 @@ Displays formatted source documentation scraped from input urls.
       <context-free-parser url="{{}}" on-data-ready="{{parserDataReady}}"></context-free-parser>
     </template>
 
-    <core-layout core-flex>
-      <core-doc-toc id="toc" data="{{classes}}" selected="{{selected}}"></core-doc-toc>
-      <core-doc-page core-flex data="{{data}}"></core-doc-page>
-    </core-layout>
+    <core-layout></core-layout>
+    <core-doc-toc id="toc" data="{{classes}}" selected="{{selected}}"></core-doc-toc>
+    <core-doc-page core-flex data="{{data}}"></core-doc-page>
 
   </template>
 
   <script>
 
     Polymer('core-doc-viewer', {
+      /**
+       * A single file to parse for docs
+       *
+       * @attribute url
+       * @type Array
+       * @default ''
+       */
 
+      /**
+       * Class documentation extracted from the parser
+       *
+       * @property classes
+       * @type Array
+       * @default []
+       */
       classes: [],
+
+      /**
+       * Files to parse for docs
+       *
+       * @attribute sources
+       * @type Array
+       * @default []
+       */
       sources: [],
 
       ready: function() {
