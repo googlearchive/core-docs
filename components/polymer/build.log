@@ -1,10 +1,10 @@
 BUILD LOG
 ---------
-Build Time: 2014-05-12T11:57:23
+Build Time: 2014-05-15T16:30:47
 
 NODEJS INFORMATION
 ==================
-nodejs: v0.10.28
+nodejs: v0.10.22
 chai: 1.9.1
 grunt: 0.4.4
 grunt-audit: 0.0.3
@@ -23,10 +23,10 @@ Polymer: 0.2.4
 
 REPO REVISIONS
 ==============
-polymer-expressions: a3d4cedd74542a810e2fb3bde5d1ef1df7a6588c
-polymer-gestures: 60a68e4ed0e20b48087570f5d0f277d7766a6776
-polymer-dev: 633a9bbfbdf57b9c78ee6a056eef4831d10b47d6
+polymer-expressions: 4fa6e038867f9fb3fa01539e3559b899838b344f
+polymer-gestures: 6379ad4dc32d8af192f987d1c4f7bb5f22cde534
+polymer-dev: 7fb98dd46146d52cea65f80106a40e5a9dec8b2e
 
 BUILD HASHES
 ============
-build/polymer.js: 95a0bb00ca411fda9fc5f2947c9cd101f676eeae
+build/polymer.js: 42894a189240e7cb405122fe2043280ec82e36c5

@@ -3,16 +3,14 @@
   "private": true,
   "dependencies": {
     "core-icon": "Polymer/core-icon#master",
-    "core-icons": "Polymer/core-icons#master",
-    "core-theme-aware": "Polymer/core-theme-aware#master",
-    "core-layout": "Polymer/core-layout#master"
+    "core-icons": "Polymer/core-icons#master"
   },
   "homepage": "https://github.com/Polymer/core-item",
-  "_release": "85bf68fa63",
+  "_release": "cde2f39364",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "85bf68fa6315d27f5faab1aa30335514249fced0"
+    "commit": "cde2f39364c91d755f253ddba5ffc83259347f56"
   },
   "_source": "git://github.com/Polymer/core-item.git",
   "_target": "master",

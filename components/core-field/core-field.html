@@ -7,7 +7,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../core-layout/core-layout.html">
+<link rel="import" href="../polymer/polymer.html">
 
 <!--
 The `core-field` supplies a horizontal layout, anticipating an input.
@@ -17,19 +17,17 @@ Example:
     <core-field>
       <core-icon icon="menu" size="48"></core-icon>
       <label>I'm a label!</label>
-      <input placeholder="I have a label" core-flex>
+      <input placeholder="I have a label" flex>
     </core-field>
 
 @group Polymer Core Elements
 @element core-field
 @homepage github.io
 -->
-<polymer-element name="core-field" noscript>
+<polymer-element name="core-field" noscript center horizontal layout>
 <template>
 
   <link rel="stylesheet" href="core-field.css">
-
-  <core-layout align="center"></core-layout>
 
   <content select="*"></content>
 
