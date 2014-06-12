@@ -5,11 +5,11 @@
     "polymer": "Polymer/polymer#master"
   },
   "homepage": "https://github.com/Polymer/core-shared-lib",
-  "_release": "64686a33b7",
+  "_release": "0d123b1a3a",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "64686a33b7e9edbb5b47160ad8d42f6edf490a71"
+    "commit": "0d123b1a3a9306c8a00545d3a6cd456857c3a25c"
   },
   "_source": "git://github.com/Polymer/core-shared-lib.git",
   "_target": "master",

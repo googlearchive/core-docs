@@ -5,11 +5,11 @@
     "polymer": "Polymer/polymer#master"
   },
   "homepage": "https://github.com/Polymer/core-bind",
-  "_release": "7ace549b09",
+  "_release": "700acc604d",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "7ace549b09d6c35f7a6b9dd55288af8e0ed9aae8"
+    "commit": "700acc604d218dcd9debc488fb142c5531b23f8d"
   },
   "_source": "git://github.com/Polymer/core-bind.git",
   "_target": "master",

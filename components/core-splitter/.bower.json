@@ -5,11 +5,11 @@
     "polymer": "Polymer/polymer#master"
   },
   "homepage": "https://github.com/Polymer/core-splitter",
-  "_release": "6bca4c65cd",
+  "_release": "4baf3f4ce1",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "6bca4c65cd42a8fb86f3d0725cd70f773652120b"
+    "commit": "4baf3f4ce108485ccd3ef0db6d2357e9d70b2aae"
   },
   "_source": "git://github.com/Polymer/core-splitter.git",
   "_target": "master",

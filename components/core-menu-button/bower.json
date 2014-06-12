@@ -4,6 +4,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#master",
     "core-icon-button": "Polymer/core-icon-button#master",
-    "core-overlay": "Polymer/core-overlay#master"
+    "core-menu": "Polymer/core-menu#master",
+    "core-overlay": "Polymer/core-overlay#master",
+    "core-toolbar": "Polymer/core-toolbar#master"
   }
 }

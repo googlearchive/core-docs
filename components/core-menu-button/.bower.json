@@ -4,14 +4,16 @@
   "dependencies": {
     "polymer": "Polymer/polymer#master",
     "core-icon-button": "Polymer/core-icon-button#master",
-    "core-overlay": "Polymer/core-overlay#master"
+    "core-menu": "Polymer/core-menu#master",
+    "core-overlay": "Polymer/core-overlay#master",
+    "core-toolbar": "Polymer/core-toolbar#master"
   },
   "homepage": "https://github.com/Polymer/core-menu-button",
-  "_release": "a6aa2918e0",
+  "_release": "ee954726c6",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "a6aa2918e03010ce892a72d7e003ba0c8231c5e3"
+    "commit": "ee954726c61ab6a2d6c90b875ae8e9dce64d67f1"
   },
   "_source": "git://github.com/Polymer/core-menu-button.git",
   "_target": "master",
