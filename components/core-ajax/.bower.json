@@ -5,11 +5,11 @@
     "polymer": "Polymer/polymer#master"
   },
   "homepage": "https://github.com/Polymer/core-ajax",
-  "_release": "423f4f1aee",
+  "_release": "6bfdbce223",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "423f4f1aee97c0ec1d99c94be72ed7bdd658fdf0"
+    "commit": "6bfdbce223cd96cf5ad875051f08037f75575c40"
   },
   "_source": "git://github.com/Polymer/core-ajax.git",
   "_target": "master",

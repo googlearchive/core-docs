@@ -5,11 +5,11 @@
     "polymer": "Polymer/polymer#master"
   },
   "homepage": "https://github.com/Polymer/core-theme-aware",
-  "_release": "fd3a1e0f17",
+  "_release": "d3ecfd21ed",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "fd3a1e0f17a0b1748faaf54c8f7e4704b1d63539"
+    "commit": "d3ecfd21ed4fd3d8304ffb913ebf36169303ced1"
   },
   "_source": "git://github.com/Polymer/core-theme-aware.git",
   "_target": "master",
